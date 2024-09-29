@@ -4,29 +4,32 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Button
+import android.widget.ArrayAdapter
+import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 
-class StartActivity : AppCompatActivity() {
-
+class ExercisesActivity : AppCompatActivity() {
     private lateinit var toolbar: Toolbar
-
-    private lateinit var trainingBTN: Button
+    private lateinit var exercisesLV: ListView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_start)
+        setContentView(R.layout.activity_exercises)
         toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        trainingBTN = findViewById(R.id.btn_training)
+        exercisesLV = findViewById(R.id.lv_exercises)
+        exercisesLV.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, ExerciseDataBase.exercises)
 
-        trainingBTN.setOnClickListener {
-            intent = Intent(this, ExercisesActivity::class.java)
+        exercisesLV.setOnItemClickListener { parent, view, position, id ->
+
+            intent = Intent(this, MainActivity::class.java)
+            intent.putExtra("exerciseIndex", position)
             startActivity(intent)
-            finish()
+
         }
+
 
     }
 
@@ -41,6 +44,5 @@ class StartActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
-
 
 }

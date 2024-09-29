@@ -38,7 +38,6 @@ class MainActivity : AppCompatActivity() {
         toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        titleTV = findViewById(R.id.tv_title)
         exerciseTV = findViewById(R.id.tv_exercise)
         descriptionTV = findViewById(R.id.tv_description)
         timerTV = findViewById(R.id.tv_timer)
@@ -47,6 +46,13 @@ class MainActivity : AppCompatActivity() {
         complitedBTN = findViewById(R.id.btn_complited)
 
         imageIV = findViewById(R.id.iv_image)
+
+        exerciseIndex = intent.getIntExtra("exerciseIndex", 0)
+        currentExercise = exercises[exerciseIndex]
+        exerciseTV.text = currentExercise.name
+        descriptionTV.text = currentExercise.description
+        imageIV.setImageResource(currentExercise.gifImage)
+        timerTV.text = formatTime(currentExercise.durationInSeconds)
 
         startBTN.setOnClickListener {
             startWorkout()
@@ -71,14 +77,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun complitedExercise() {
-        timer.cancel()
-        complitedBTN.isEnabled = false
-        startNextExercise()
+        finish()
     }
 
     private fun startWorkout() {
-        exerciseIndex = 0
-        titleTV.text = "Начало тренировки"
+
         startBTN.isEnabled = false
         startBTN.text = "Процесс тренировки"
         startNextExercise()
@@ -93,11 +96,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun startNextExercise() {
         if (exerciseIndex < exercises.size) {
-            currentExercise = exercises[exerciseIndex]
-            exerciseTV.text = currentExercise.name
-            descriptionTV.text = currentExercise.description
-            imageIV.setImageResource(currentExercise.gifImage)
-            timerTV.text = formatTime(currentExercise.durationInSeconds)
             timer =
                 object : CountDownTimer((currentExercise.durationInSeconds * 1000).toLong(), 1000) {
                     override fun onTick(millisUntilFinished: Long) {
@@ -111,14 +109,12 @@ class MainActivity : AppCompatActivity() {
                         imageIV.setImageResource(0)
                     }
                 }.start()
-            exerciseIndex++
         } else {
             exerciseTV.text = "Тренировка завершена"
             descriptionTV.text = ""
             titleTV.text = ""
-            complitedBTN.isEnabled = false
-            startBTN.isEnabled = true
-            startBTN.text = "Начать снова"
+            complitedBTN.isEnabled = true
+            startBTN.isEnabled = false
         }
     }
 }

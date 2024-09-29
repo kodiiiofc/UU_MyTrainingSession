@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Моя тренировка</string>
-    <string name="btn_start">Начало тренировки</string>
+    <string name="btn_start">Начать</string>
     <string name="tv_exercise">Упражнение</string>
-    <string name="btn_complited">Продолжить дальше</string>
+    <string name="btn_complited">К списку упражнений</string>
     <string name="tv_timer">Оставшееся время</string>
     <string name="tv_title">Начало тренировки</string>
     <string name="menu_exit">Выход</string>

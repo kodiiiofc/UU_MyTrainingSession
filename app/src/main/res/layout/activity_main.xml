@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".MainActivity">
 
-    <include
-        layout="@layout/toolbar"/>
+    <include layout="@layout/toolbar" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,65 +16,56 @@
         android:orientation="vertical"
         android:padding="@dimen/padding_main">
 
+        <TextView
+            android:id="@+id/tv_exercise"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/tv_exercise"
+            android:textSize="@dimen/text_big"
+            android:textStyle="bold" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/tv_title"
-        android:textSize="@dimen/text_big"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:text="@string/tv_title" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/btn_start"
-        android:text="@string/btn_start"
-        android:layout_marginTop="@dimen/margin_main"/>
+        <TextView
+            android:id="@+id/tv_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_main"
+            android:gravity="start"
+            android:text="Здесь описание упражения"
+            android:textSize="@dimen/text_small"
+            android:textStyle="normal" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/tv_exercise"
-        android:textSize="@dimen/text_main"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:text="@string/tv_exercise"
-        android:layout_marginTop="@dimen/margin_main"/>
+        <Button
+            android:id="@+id/btn_start"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_main"
+            android:text="@string/btn_start" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/tv_description"
-        android:textSize="@dimen/text_small"
-        android:gravity="start"
-        android:textStyle="normal"
-        android:layout_marginTop="@dimen/margin_main"/>
+        <TextView
+            android:id="@+id/tv_timer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_main"
+            android:gravity="center"
+            android:text="@string/tv_timer"
+            android:textSize="@dimen/text_main"
+            android:textStyle="bold" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/tv_timer"
-        android:textSize="@dimen/text_main"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:text="@string/tv_timer"
-        android:layout_marginTop="@dimen/margin_main"/>
+        <Button
+            android:id="@+id/btn_complited"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_main"
+            android:enabled="false"
+            android:text="@string/btn_complited" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/btn_complited"
-        android:text="@string/btn_complited"
-        android:layout_marginTop="@dimen/margin_main"
-        android:enabled="false"/>
-
-    <pl.droidsonroids.gif.GifImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/iv_image"
-        android:layout_marginTop="@dimen/margin_main"/>
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/iv_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/margin_main" />
 
     </LinearLayout>
 
