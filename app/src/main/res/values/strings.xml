@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Моя тренировка</string>
+    <string name="btn_start">Начало тренировки</string>
+    <string name="tv_exercise">Упражнение</string>
+    <string name="btn_complited">Продолжить дальше</string>
+    <string name="tv_timer">Оставшееся время</string>
+    <string name="tv_title">Начало тренировки</string>
+    <string name="menu_exit">Выход</string>
+    <string name="tv_slogan">Быстрее! Выше! Сильнее!</string>
+    <string name="tv_greeting">Привет! Время тренироваться!</string>
+    <string name="btn_training">К тренировкам</string>
+</resources>
